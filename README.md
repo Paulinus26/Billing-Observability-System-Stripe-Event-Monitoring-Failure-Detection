@@ -67,6 +67,7 @@ Figure 2: Data Normalization and Multi-Channel Logic
 
 Phase 3 — Stripe Integration & Tunneling
 Using the Stripe CLI to forward cloud events to the local server mirrors a production load balancer routing traffic to microservices.
+![figure 3](https://github.com/user-attachments/assets/27f5ac65-969b-4d55-90c5-5f041e829d55)
 
 Figure 3: System Ingestion Pipeline Verification
 
