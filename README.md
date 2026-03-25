@@ -56,56 +56,14 @@ The foundation requires a synchronized environment between the payment processor
 
 Figure 1: Database Schema Initialization
 
-```SQL
-CREATE TABLE billing_events (
-  id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
-  event_type text,
-  customer_id text,
-  status text,
-  amount numeric,
-  currency text,
-  error_message text,
-  payment_intent_id text,
-  invoice_id text,
-  created_at timestamp
-);
-```
-Image Placement: [Screenshot of the Supabase SQL Editor showing successful execution of the billing_events table creation script.]
-
 Phase 2 — Webhook & Notification Logic
 The Node.js handler distills dense JSON payloads into clean data for both Slack and Supabase.
 
 Core Webhook Handler:
 
-```JavaScript
-app.post('/webhook', async (req, res) => {
-  const event = req.body;
-  const data = event.data.object;
+![Figure 2](https://github.com/user-attachments/assets/36a85553-328f-4ef9-9481-1f8e62fec1bf)
 
-  // Data Normalization (Cents to Dollars + Fallback Naming)
-  const amount = (data.amount_due || data.amount || 0) / 100;
-  const customerName = data.customer_name || "Harry Joe (Client)";
-
-  // 1. Log to Supabase
-  await supabase.from('billing_events').insert([{
-    event_type: event.type,
-    customer_id: customerName,
-    amount: amount,
-    error_message: data.last_payment_error?.message || null,
-    created_at: new Date(event.created * 1000)
-  }]);
-
-  // 2. Alert Slack
-  await axios.post(SLACK_WEBHOOK_URL, {
-    text: `🚨 *Billing Failure Alert*\n*Customer:* ${customerName}\n*Amount:* $${amount}\n*Status:* Failed`
-  });
-
-  res.sendStatus(200);
-});
-```
 Figure 2: Data Normalization and Multi-Channel Logic
-
-Image Placement: [Screenshot of the index.js code in Notepad showing the logic that fixes the amount decimal error and sets the fallback customer name.]
 
 Phase 3 — Stripe Integration & Tunneling
 Using the Stripe CLI to forward cloud events to the local server mirrors a production load balancer routing traffic to microservices.
