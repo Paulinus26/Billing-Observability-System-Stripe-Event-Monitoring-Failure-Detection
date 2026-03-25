@@ -71,8 +71,6 @@ Using the Stripe CLI to forward cloud events to the local server mirrors a produ
 
 Figure 3: System Ingestion Pipeline Verification
 
-Image Placement: [Screenshot of the terminal showing the Stripe CLI "Ready" message and successfully forwarding events to localhost:3000/webhook.]
-
 Phase 4 — Operational Simulation
 
 Validated the system using standardized test cards to trigger specific response paths.
@@ -80,10 +78,9 @@ Validated the system using standardized test cards to trigger specific response 
 Success: Used card 4242...
 
 Failure: Used card 4000...0002
+![figure 4 ](https://github.com/user-attachments/assets/8aff07a9-eb6b-401f-ad8a-625bd8c75fe8)
 
 Figure 4: Simulating SaaS Billing Events
-
-Image Placement: [Screenshot of the Stripe Dashboard showing the Customers list with Harry Joe and Paul Chidi profiles.]
 
 Phase 5 — System Validation
 Verification is confirmed when the Stripe event is "materialized" in both the database and the Slack channel simultaneously.
