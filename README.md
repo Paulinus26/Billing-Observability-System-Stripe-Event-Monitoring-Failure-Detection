@@ -87,7 +87,7 @@ Verification is confirmed when the Stripe event is "materialized" in both the da
 ![figure 5](https://github.com/user-attachments/assets/fd678ac3-43f9-4f5a-8818-f5e98e2e1eb9)
 
 Figure 5a: Real-Time Incident Alerting
-
+![figure 5b](https://github.com/user-attachments/assets/0e0ea120-239c-41c9-bcd2-4bd323b13ced)
 
 6. Investigation & Analysis
 
