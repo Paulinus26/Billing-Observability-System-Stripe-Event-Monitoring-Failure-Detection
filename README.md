@@ -1,5 +1,5 @@
 # Billing-Observability-System-Stripe-Event-Monitoring-Failure-Detection
-##1. Overview
+1. Overview
 
 In a modern SaaS environment, billing is the heartbeat of the business. When payments fail, it’s not just a technical error,it’s a disruption in service and a direct loss of revenue. This Billing Observability System was engineered to provide real-time visibility into the subscription lifecycle.
 
