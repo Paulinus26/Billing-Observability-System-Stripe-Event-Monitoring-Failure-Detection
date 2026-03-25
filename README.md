@@ -67,8 +67,8 @@ CREATE TABLE billing_events (
   payment_intent_id text,
   invoice_id text,
   created_at timestamp
-);```
-
+);
+```
 Image Placement: [Screenshot of the Supabase SQL Editor showing successful execution of the billing_events table creation script.]
 
 Phase 2 — Webhook & Notification Logic
@@ -100,8 +100,8 @@ app.post('/webhook', async (req, res) => {
   });
 
   res.sendStatus(200);
-});```
-
+});
+```
 Figure 2: Data Normalization and Multi-Channel Logic
 
 Image Placement: [Screenshot of the index.js code in Notepad showing the logic that fixes the amount decimal error and sets the fallback customer name.]
@@ -141,8 +141,8 @@ Detecting Revenue at Risk: Identifying the total volume of failed payments in a 
 Example Query:
 
 ```SQL
-SELECT SUM(amount) FROM billing_events WHERE event_type = 'invoice.payment_failed';```
-
+SELECT SUM(amount) FROM billing_events WHERE event_type = 'invoice.payment_failed';
+```
 
 7. Debugging & Investigation Workflow
 
