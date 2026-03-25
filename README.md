@@ -1,11 +1,11 @@
 # Billing-Observability-System-Stripe-Event-Monitoring-Failure-Detection
-Overview
+1. Overview
 
 In a modern SaaS environment, billing is the heartbeat of the business. When payments fail, it’s not just a technical error,it’s a disruption in service and a direct loss of revenue. This Billing Observability System was engineered to provide real-time visibility into the subscription lifecycle.
 
 By capturing asynchronous events from Stripe and centralizing them into a queryable database while simultaneously alerting the team via Slack, this system transforms raw payment data into actionable intelligence. It allows support engineers to detect failures instantly, investigate root causes via SQL, and mitigate revenue leakage before it impacts the customer experience.
 
-System Architecture
+2. System Architecture
 
 The architecture is built on an event-driven model, ensuring that every state change in a customer's subscription is recorded and processed.
 
@@ -21,7 +21,7 @@ Slack Integration: Provides immediate, human-readable alerts for incident respon
 
 Supabase (PostgreSQL): A relational database that stores high-fidelity logs for long-term audit.
 
-Technology Stack
+3. Technology Stack
 
 Stripe API: Managed billing infrastructure and event generation.
 
@@ -33,17 +33,17 @@ Supabase/PostgreSQL: Scalable relational storage for event querying.
 
 Stripe CLI: Developer tooling for local event tunneling.
 
-System Design
+4. System Design
 
 This system utilizes Webhook-based Ingestion to handle the asynchronous nature of SaaS payments. Unlike a synchronous API call, billing events (like a card decline) happen outside the user's immediate session.
 
-Our design ensures Multi-Channel Delivery:
+The design ensures Multi-Channel Delivery:
 
 Immediate Action: Slack alerts for the Support team to handle urgent customer outreach.
 
 Historical Record: Database entries for the Engineering and Finance teams to track trends.
 
-Implementation
+5. Implementation
 
 Phase 1 — Infrastructure Setup
 
@@ -68,6 +68,7 @@ CREATE TABLE billing_events (
   invoice_id text,
   created_at timestamp
 );```
+
 Image Placement: [Screenshot of the Supabase SQL Editor showing successful execution of the billing_events table creation script.]
 
 Phase 2 — Webhook & Notification Logic
@@ -100,6 +101,7 @@ app.post('/webhook', async (req, res) => {
 
   res.sendStatus(200);
 });```
+
 Figure 2: Data Normalization and Multi-Channel Logic
 
 Image Placement: [Screenshot of the index.js code in Notepad showing the logic that fixes the amount decimal error and sets the fallback customer name.]
@@ -140,6 +142,7 @@ Example Query:
 
 ```SQL
 SELECT SUM(amount) FROM billing_events WHERE event_type = 'invoice.payment_failed';```
+
 
 7. Debugging & Investigation Workflow
 
