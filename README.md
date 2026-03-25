@@ -101,6 +101,8 @@ Example Query:
 ```SQL
 SELECT SUM(amount) FROM billing_events WHERE event_type = 'invoice.payment_failed';
 ```
+![figure 6](https://github.com/user-attachments/assets/96c76b40-c21c-4aff-b568-320b5bad8a59)
+Figure 6: High-Level Revenue Audit
 
 7. Debugging & Investigation Workflow
 
