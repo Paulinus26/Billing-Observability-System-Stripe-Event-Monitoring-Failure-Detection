@@ -88,6 +88,7 @@ Verification is confirmed when the Stripe event is "materialized" in both the da
 
 Figure 5a: Real-Time Incident Alerting
 ![figure 5b](https://github.com/user-attachments/assets/0e0ea120-239c-41c9-bcd2-4bd323b13ced)
+Figure 5b: Centralized Event Logging
 
 6. Investigation & Analysis
 
@@ -124,7 +125,3 @@ System Transparency: Provides a clear audit trail for financial troubleshooting 
 9. Conclusion
 
 This project demonstrates the ability to build scalable monitoring tools, handle complex API integrations, and use data-driven methodologies to solve critical SaaS business problems.
-
-Figure 6: Final Production Alert View
-
-Image Placement: [Screenshot of the Slack app showing the final, professional notification including the $20.00 amount and the customer name Harry Joe (Client).]
