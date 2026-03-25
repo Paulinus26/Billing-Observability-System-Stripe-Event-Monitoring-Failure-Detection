@@ -84,10 +84,10 @@ Figure 4: Simulating SaaS Billing Events
 
 Phase 5 — System Validation
 Verification is confirmed when the Stripe event is "materialized" in both the database and the Slack channel simultaneously.
+![figure 5](https://github.com/user-attachments/assets/fd678ac3-43f9-4f5a-8818-f5e98e2e1eb9)
 
-Figure 5: Multi-Channel Success Confirmation
+Figure 5a: Real-Time Incident Alerting
 
-Image Placement: [Screenshot showing a side-by-side view: The Slack notification for Harry Joe and the corresponding new row in the Supabase Table Editor.]
 
 6. Investigation & Analysis
 
