@@ -52,6 +52,7 @@ The foundation requires a synchronized environment between the payment processor
 • Stripe Configuration: Initialized in Test Mode to simulate transactions.
 
 • Database Schema: Created the billing_events table to capture context including error messages and status.
+![Figure 1](https://github.com/user-attachments/assets/e67d710c-c548-4c4a-a4da-f86e89707129)
 
 Figure 1: Database Schema Initialization
 
