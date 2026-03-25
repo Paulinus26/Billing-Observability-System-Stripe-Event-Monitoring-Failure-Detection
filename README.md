@@ -13,25 +13,25 @@ The Operational Flow:
 
 Stripe (Event Source) → Webhook (Node.js Handler) → Supabase & Slack → SQL Analysis
 
-Stripe: Acts as the primary source of truth for all financial transactions.
+• Stripe: Acts as the primary source of truth for all financial transactions.
 
-Node.js Webhook: A lightweight middleware that ingests real-time POST requests, extracts metadata, and routes them to storage and communication channels.
+• Node.js Webhook: A lightweight middleware that ingests real-time POST requests, extracts metadata, and routes them to storage and communication channels.
 
-Slack Integration: Provides immediate, human-readable alerts for incident response.
+• Slack Integration: Provides immediate, human-readable alerts for incident response.
 
-Supabase (PostgreSQL): A relational database that stores high-fidelity logs for long-term audit.
+• Supabase (PostgreSQL): A relational database that stores high-fidelity logs for long-term audit.
 
 3. Technology Stack
 
-Stripe API: Managed billing infrastructure and event generation.
+• Stripe API: Managed billing infrastructure and event generation.
 
-Node.js & Express: Environment for handling concurrent webhook requests.
+• Node.js & Express: Environment for handling concurrent webhook requests.
 
-Slack Webhook API: Instant notification layer for support teams.
+• Slack Webhook API: Instant notification layer for support teams.
 
-Supabase/PostgreSQL: Scalable relational storage for event querying.
+• Supabase/PostgreSQL: Scalable relational storage for event querying.
 
-Stripe CLI: Developer tooling for local event tunneling.
+• Stripe CLI: Developer tooling for local event tunneling.
 
 4. System Design
 
@@ -39,9 +39,9 @@ This system utilizes Webhook-based Ingestion to handle the asynchronous nature o
 
 The design ensures Multi-Channel Delivery:
 
-Immediate Action: Slack alerts for the Support team to handle urgent customer outreach.
+• Immediate Action: Slack alerts for the Support team to handle urgent customer outreach.
 
-Historical Record: Database entries for the Engineering and Finance teams to track trends.
+• Historical Record: Database entries for the Engineering and Finance teams to track trends.
 
 5. Implementation
 
@@ -49,9 +49,9 @@ Phase 1 — Infrastructure Setup
 
 The foundation requires a synchronized environment between the payment processor and the database.
 
-Stripe Configuration: Initialized in Test Mode to simulate transactions.
+• Stripe Configuration: Initialized in Test Mode to simulate transactions.
 
-Database Schema: Created the billing_events table to capture context including error messages and status.
+• Database Schema: Created the billing_events table to capture context including error messages and status.
 
 Figure 1: Database Schema Initialization
 
