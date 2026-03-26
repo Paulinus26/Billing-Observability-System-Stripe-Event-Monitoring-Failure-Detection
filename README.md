@@ -8,6 +8,7 @@ The system captures asynchronous events from Stripe, stores them in Supabase, an
 This project reflects a real-world support engineering workflow: detection, investigation, and resolution of billing issues.
 
 2. System Architecture
+
 Operational Flow
 
 Stripe → Webhook (Node.js) → Supabase → SQL Analysis
@@ -19,6 +20,7 @@ Architecture Diagram
 Figure 1: Event-driven architecture showing Stripe events flowing through a Node.js webhook into Supabase, with Slack alerts for failed payments
 
 Component Breakdown
+
 • Stripe
 Generates billing events such as invoice.paid and invoice.payment_failed.
 • Node.js Webhook
@@ -29,6 +31,7 @@ Stores structured billing events for querying and investigation.
 Provides real-time alerts for failed payment events
 
 3. Technology Stack
+
 • Stripe — billing event source
 • Supabase — database and analysis
 • Node.js (Express) — webhook handler
@@ -51,6 +54,7 @@ Each event includes:
 • currency
 • error message
 • timestamp
+
 ```CREATE TABLE billing_events (
   id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
   event_type text,
@@ -68,13 +72,16 @@ Each event includes:
 Figure 2: Supabase table capturing Stripe billing events.
 
 5. Implementation
+
 Phase 1 — Setup
+
 • Created Stripe account (Test Mode)
 • Retrieved API keys
 • Created Supabase project
 • Created billing_events table
 
 Phase 2 — Webhook System
+
 • Initialized Node.js project
 • Installed dependencies
 • Built webhook endpoint
@@ -89,6 +96,7 @@ The webhook:
 Figure 3: Webhook processing flow for event ingestion and alerting.
 
 Phase 3 — Stripe Integration
+
 • Installed Stripe CLI
 • Authenticated locally
 • Forwarded events to local server
@@ -153,13 +161,14 @@ Trace customer billing history
 Figure 7: Deep-Dive Investigation
 
 8. Business Impact
+
 • Enables real-time detection of billing failures
 • Reduces response time through Slack alerts
 • Supports independent investigation using SQL
 • Improves revenue recovery workflows
 • Provides audit trail for billing issues
 
-9. Conclusion
+10. Conclusion
 
 This project demonstrates the ability to build a billing observability system using real SaaS tools.
 
