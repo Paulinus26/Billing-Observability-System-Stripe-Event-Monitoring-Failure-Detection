@@ -7,6 +7,7 @@ The system captures asynchronous events from Stripe, stores them in Supabase, an
 
 This project reflects a real-world support engineering workflow: detection, investigation, and resolution of billing issues.
 
+
 2. System Architecture
 
 Operational Flow
@@ -36,6 +37,7 @@ Stores structured billing events for querying and investigation.
 • Slack
 Provides real-time alerts for failed payment events
 
+
 3. Technology Stack
 
 • Stripe — billing event source
@@ -47,6 +49,7 @@ Provides real-time alerts for failed payment events
 • Slack Webhooks — alerting layer
 
 • Stripe CLI — local event forwarding
+
 
 4. System Design
 
@@ -87,6 +90,7 @@ Each event includes:
 ```
 ![Figure 1](https://github.com/user-attachments/assets/e67d710c-c548-4c4a-a4da-f86e89707129)
 Figure 2: Supabase table capturing Stripe billing events.
+
 
 5. Implementation
 
@@ -160,6 +164,7 @@ Confirmed system functionality by:
 ![figure b](https://github.com/user-attachments/assets/0e0ea120-239c-41c9-bcd2-4bd323b13ced)
 Figure 6: Billing events stored and alerts triggered.
 
+
 6. Investigation & Analysis
 
 SQL queries are used to investigate billing issues.
@@ -170,8 +175,9 @@ SELECT SUM(amount)
 FROM billing_events
 WHERE event_type = 'invoice.payment_failed';
 ```
-![figure 6](https://github.com/user-attachments/assets/96c76b40-c21c-4aff-b568-320b5bad8a59) 
+![figure 6](https://github.com/user-attachments/assets/96c76b40-c21c-4aff-b568-320b5bad8a59)  
 Figure 7: Query result showing failed payment totals.
+
 
 7. Debugging & Investigation Workflow
 
@@ -197,7 +203,8 @@ Trace customer billing history
 
 • escalate if needed
 ![figure 7](https://github.com/user-attachments/assets/48296d54-aa0f-43aa-a1e3-05168c8850b6) 
-Figure 7: Deep-Dive Investigation
+Figure 8: Deep-Dive Investigation
+
 
 9. Business Impact
 
@@ -210,6 +217,7 @@ Figure 7: Deep-Dive Investigation
 • Improves revenue recovery workflows
 
 • Provides audit trail for billing issues
+
 
 10. Conclusion
 
