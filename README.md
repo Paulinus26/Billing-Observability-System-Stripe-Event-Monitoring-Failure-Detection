@@ -14,8 +14,10 @@ Operational Flow
 Stripe → Webhook (Node.js) → Supabase → SQL Analysis
 
                                             ↓
+                                            
                                        Slack (Alerts)
                    
+
 Architecture Diagram
 
 Figure 1: Event-driven architecture showing Stripe events flowing through a Node.js webhook into Supabase, with Slack alerts for failed payments
