@@ -12,6 +12,7 @@ This project reflects a real-world support engineering workflow: detection, inve
 Operational Flow
 
 Stripe → Webhook (Node.js) → Supabase → SQL Analysis
+
                                             ↓
                                        Slack (Alerts)
                    
@@ -23,19 +24,26 @@ Component Breakdown
 
 • Stripe
 Generates billing events such as invoice.paid and invoice.payment_failed.
+
 • Node.js Webhook
 Receives events, extracts relevant data, stores them in the database, and triggers alerts.
+
 • Supabase
 Stores structured billing events for querying and investigation.
+
 • Slack
 Provides real-time alerts for failed payment events
 
 3. Technology Stack
 
 • Stripe — billing event source
+
 • Supabase — database and analysis
+
 • Node.js (Express) — webhook handler
+
 • Slack Webhooks — alerting layer
+
 • Stripe CLI — local event forwarding
 
 4. System Design
@@ -47,12 +55,19 @@ Billing systems operate asynchronously. Events such as payment failures or retri
 Data Model
 
 Each event includes:
+
 • event type
+
 • customer ID
+
 • status
+
 • amount
+
 • currency
+
 • error message
+
 • timestamp
 
 ```CREATE TABLE billing_events (
@@ -76,30 +91,42 @@ Figure 2: Supabase table capturing Stripe billing events.
 Phase 1 — Setup
 
 • Created Stripe account (Test Mode)
+
 • Retrieved API keys
+
 • Created Supabase project
+
 • Created billing_events table
 
 Phase 2 — Webhook System
 
 • Initialized Node.js project
+
 • Installed dependencies
+
 • Built webhook endpoint
 
 The webhook:
 
 • receives Stripe events
+
 • extracts relevant fields
+
 • stores data in Supabase
+
 • triggers Slack alerts
+
 ![Figure 2](https://github.com/user-attachments/assets/36a85553-328f-4ef9-9481-1f8e62fec1bf)
 Figure 3: Webhook processing flow for event ingestion and alerting.
 
 Phase 3 — Stripe Integration
 
 • Installed Stripe CLI
+
 • Authenticated locally
+
 • Forwarded events to local server
+
 ```stripe listen --forward-to localhost:3000/webhook
 ```
 ![figure 3](https://github.com/user-attachments/assets/27f5ac65-969b-4d55-90c5-5f041e829d55)
@@ -122,8 +149,11 @@ Figure 5: Simulating SaaS Billing Events
 Phase 5 — System Validation
 
 Confirmed system functionality by:
+
 • confirming Slack alerts for failed payments
+
 • verifying records in Supabase
+
 ![figure 5](https://github.com/user-attachments/assets/fd678ac3-43f9-4f5a-8818-f5e98e2e1eb9)
 ![figure b](https://github.com/user-attachments/assets/0e0ea120-239c-41c9-bcd2-4bd323b13ced)
 Figure 6: Billing events stored and alerts triggered.
@@ -147,25 +177,36 @@ This system supports a structured support workflow:
 
 1. Detection
 Slack alert signals a failed payment
+
 2. Query
 Retrieve event data from Supabase
+
 3. Identification
 Review error message and payment status
+
 4. Analysis
 Trace customer billing history
+
 5. Resolution
+
 • retry payment
+
 • notify customer
+
 • escalate if needed
 ![figure 7]https://github.com/user-attachments/assets/48296d54-aa0f-43aa-a1e3-05168c8850b6)
 Figure 7: Deep-Dive Investigation
 
-8. Business Impact
+9. Business Impact
 
 • Enables real-time detection of billing failures
+
 • Reduces response time through Slack alerts
+
 • Supports independent investigation using SQL
+
 • Improves revenue recovery workflows
+
 • Provides audit trail for billing issues
 
 10. Conclusion
@@ -175,6 +216,9 @@ This project demonstrates the ability to build a billing observability system us
 It highlights:
 
 • event-driven system design
+
 • webhook integration
+
 • debugging and investigation workflows
+
 • data-driven problem solving
