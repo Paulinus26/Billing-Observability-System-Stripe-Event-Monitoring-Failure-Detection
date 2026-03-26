@@ -11,6 +11,7 @@ This project reflects a real-world support engineering workflow: detection, inve
 2. System Architecture
 
 Operational Flow
+
 Stripe ➔ Webhook (Node.js) ➔ Supabase ➔ SQL Analysis        
              
              ↓
