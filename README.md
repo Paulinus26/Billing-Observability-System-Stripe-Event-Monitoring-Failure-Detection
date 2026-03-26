@@ -14,9 +14,9 @@ Operational Flow
 
 Stripe → Webhook (Node.js) → Supabase → SQL Analysis
 
-                                            ↓
+                      ↓
                                             
-                                       Slack (Alerts)
+                 Slack (Alerts)
                    
 
 Architecture Diagram
