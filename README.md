@@ -20,8 +20,7 @@ Stripe  →  Webhook (Node.js)  →  Supabase  →  SQL Analysis
         
 Architecture Diagram
 
-![figure 1](https://github.com/user-attachments/assets/85d2ebee-29fe-49db-ab71-5dd2ff5d0366)
-
+![figure 1](https://github.com/user-attachments/assets/d92f53c7-6df6-4e3c-9408-1a2115243d4f) 
 Figure 1: Event-driven architecture showing Stripe events flowing through a Node.js webhook into Supabase, with Slack alerts for failed payments
 
 Component Breakdown
