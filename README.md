@@ -12,6 +12,7 @@ This project reflects a real-world support engineering workflow: detection, inve
 Operational Flow
 
 Stripe → Webhook (Node.js) → Supabase → SQL Analysis
+
                                             ↓
                                             
                                        Slack (Alerts)
@@ -127,10 +128,10 @@ Phase 3 — Stripe Integration
 • Authenticated locally
 
 • Forwarded events to local server
-
-```stripe listen --forward-to localhost:3000/webhook
 ```
-![figure 3](https://github.com/user-attachments/assets/27f5ac65-969b-4d55-90c5-5f041e829d55)
+stripe listen --forward-to localhost:3000/webhook
+```
+![figure 4](https://github.com/user-attachments/assets/27f5ac65-969b-4d55-90c5-5f041e829d55)
 Figure 4: System Ingestion Pipeline Verification
 
 Phase 4 — Event Simulation
@@ -195,7 +196,7 @@ Trace customer billing history
 • notify customer
 
 • escalate if needed
-![figure 7]https://github.com/user-attachments/assets/48296d54-aa0f-43aa-a1e3-05168c8850b6) 
+![figure 7](https://github.com/user-attachments/assets/48296d54-aa0f-43aa-a1e3-05168c8850b6) 
 Figure 7: Deep-Dive Investigation
 
 9. Business Impact
