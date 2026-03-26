@@ -12,7 +12,6 @@ This project reflects a real-world support engineering workflow: detection, inve
 Operational Flow
 
 Stripe → Webhook (Node.js) → Supabase → SQL Analysis
-
                                             ↓
                                             
                                        Slack (Alerts)
@@ -165,12 +164,12 @@ Figure 6: Billing events stored and alerts triggered.
 SQL queries are used to investigate billing issues.
 
 Revenue at Risk
-
-```SELECT SUM(amount)
+```
+SELECT SUM(amount)
 FROM billing_events
 WHERE event_type = 'invoice.payment_failed';
 ```
-![figure 6](https://github.com/user-attachments/assets/96c76b40-c21c-4aff-b568-320b5bad8a59)
+![figure 6](https://github.com/user-attachments/assets/96c76b40-c21c-4aff-b568-320b5bad8a59) 
 Figure 7: Query result showing failed payment totals.
 
 7. Debugging & Investigation Workflow
@@ -196,7 +195,7 @@ Trace customer billing history
 • notify customer
 
 • escalate if needed
-![figure 7]https://github.com/user-attachments/assets/48296d54-aa0f-43aa-a1e3-05168c8850b6)
+![figure 7]https://github.com/user-attachments/assets/48296d54-aa0f-43aa-a1e3-05168c8850b6) 
 Figure 7: Deep-Dive Investigation
 
 9. Business Impact
