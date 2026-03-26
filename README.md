@@ -11,8 +11,8 @@ This project reflects a real-world support engineering workflow: detection, inve
 Operational Flow
 
 Stripe → Webhook (Node.js) → Supabase → SQL Analysis
-                     ↓
-                   Slack (Alerts)
+                                            ↓
+                                       Slack (Alerts)
                    
 Architecture Diagram
 
