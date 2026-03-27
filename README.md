@@ -1,5 +1,5 @@
 # Billing-Observability-System-Stripe-Event-Monitoring-Failure-Detection
-1. Overview
+## Overview
 
 In a SaaS environment, billing failures directly impact revenue and customer access. This project implements a billing observability system that provides visibility into payment events and supports structured investigation of failures.
 
