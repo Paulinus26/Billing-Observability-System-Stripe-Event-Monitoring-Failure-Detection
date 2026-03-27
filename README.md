@@ -8,9 +8,9 @@ The system captures asynchronous events from Stripe, stores them in Supabase, an
 This project reflects a real-world support engineering workflow: detection, investigation, and resolution of billing issues.
 
 
-##System Architecture
+## System Architecture
 
-###Operational Flow
+### Operational Flow
 
 Stripe  →  Webhook (Node.js)  →  Supabase  →  SQL Analysis 
               
@@ -18,13 +18,13 @@ Stripe  →  Webhook (Node.js)  →  Supabase  →  SQL Analysis
         
         Slack (Alerts)
         
-Architecture Diagram
+### Architecture Diagram
 
 ![figure 1](https://github.com/user-attachments/assets/d92f53c7-6df6-4e3c-9408-1a2115243d4f) 
 
 Figure 1: Event-driven architecture showing Stripe events flowing through a Node.js webhook into Supabase, with Slack alerts for failed payments
 
-Component Breakdown
+### Component Breakdown
 
 • Stripe
 Generates billing events such as invoice.paid and invoice.payment_failed.
@@ -39,7 +39,7 @@ Stores structured billing events for querying and investigation.
 Provides real-time alerts for failed payment events
 
 
-3. Technology Stack
+## Technology Stack
 
 • Stripe — billing event source
 
@@ -52,13 +52,13 @@ Provides real-time alerts for failed payment events
 • Stripe CLI — local event forwarding
 
 
-4. System Design
+## System Design
 
 The system is built around event-driven ingestion.
 
 Billing systems operate asynchronously. Events such as payment failures or retries occur independently of user interaction. This system captures those events in real time and stores them for analysis.
 
-Data Model
+### Data Model
 
 Each event includes:
 
@@ -93,9 +93,9 @@ Each event includes:
 Figure 2: Supabase table capturing Stripe billing events.
 
 
-5. Implementation
+## Implementation
 
-Phase 1 — Setup
+### Phase 1 — Setup
 
 • Created Stripe account (Test Mode)
 
@@ -105,7 +105,7 @@ Phase 1 — Setup
 
 • Created billing_events table
 
-Phase 2 — Webhook System
+### Phase 2 — Webhook System
 
 • Initialized Node.js project
 
@@ -126,7 +126,7 @@ The webhook:
 ![Figure 2](https://github.com/user-attachments/assets/36a85553-328f-4ef9-9481-1f8e62fec1bf)
 Figure 3: Webhook processing flow for event ingestion and alerting.
 
-Phase 3 — Stripe Integration
+### Phase 3 — Stripe Integration
 
 • Installed Stripe CLI
 
@@ -139,7 +139,7 @@ stripe listen --forward-to localhost:3000/webhook
 ![figure 4](https://github.com/user-attachments/assets/27f5ac65-969b-4d55-90c5-5f041e829d55)
 Figure 4: System Ingestion Pipeline Verification
 
-Phase 4 — Event Simulation
+### Phase 4 — Event Simulation
 
 Used test cards to simulate real billing outcomes:
 
@@ -153,7 +153,7 @@ invoice.payment_failed
 ![figure ](https://github.com/user-attachments/assets/8aff07a9-eb6b-401f-ad8a-625bd8c75fe8)
 Figure 5: Simulating SaaS Billing Events
 
-Phase 5 — System Validation
+### Phase 5 — System Validation
 
 Confirmed system functionality by:
 
@@ -166,7 +166,7 @@ Confirmed system functionality by:
 Figure 6: Billing events stored and alerts triggered.
 
 
-6. Investigation & Analysis
+## Investigation & Analysis
 
 SQL queries are used to investigate billing issues.
 
@@ -180,7 +180,7 @@ WHERE event_type = 'invoice.payment_failed';
 Figure 7: Query result showing failed payment totals.
 
 
-7. Debugging & Investigation Workflow
+## Debugging & Investigation Workflow
 
 This system supports a structured support workflow:
 
@@ -207,7 +207,7 @@ Trace customer billing history
 Figure 8: Deep-Dive Investigation
 
 
-9. Business Impact
+## Business Impact
 
 • Enables real-time detection of billing failures
 
@@ -220,7 +220,7 @@ Figure 8: Deep-Dive Investigation
 • Provides audit trail for billing issues
 
 
-10. Conclusion
+## Conclusion
 
 This project demonstrates the ability to build a billing observability system using real SaaS tools.
 
