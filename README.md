@@ -8,9 +8,9 @@ The system captures asynchronous events from Stripe, stores them in Supabase, an
 This project reflects a real-world support engineering workflow: detection, investigation, and resolution of billing issues.
 
 
-2. System Architecture
+##System Architecture
 
-Operational Flow
+###Operational Flow
 
 Stripe  →  Webhook (Node.js)  →  Supabase  →  SQL Analysis 
               
